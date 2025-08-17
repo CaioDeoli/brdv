@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Validador Brasil</title>
+</head>
+<body>
+  <h1>Validação de CPF</h1>
+
+  <input id="cpfInput" placeholder="Digite CPF">
+  <button onclick="checkCPF()">Validar</button>
+  <button onclick="genCPF()">Gerar CPF</button>
+
+  <pre id="result"></pre>
+
+  <script src="../dist/bundle.js"></script>
+  <script>
+    function checkCPF() {
+      const cpf = document.getElementById("cpfInput").value;
+      const valid = MeuValidador.validateCPF(cpf);
+      document.getElementById("result").innerText = valid ? "✅ Válido" : "❌ Inválido";
+    }
+
+    function genCPF() {
+      const cpf = MeuValidador.generateCPF();
+      document.getElementById("result").innerText = "Novo CPF: " + cpf;
+    }
+  </script>
+</body>
+</html>
